@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
+import projectsData from "@/data/projects.json";
 import { Badge } from "@/ui/components/Badge";
 import { Button } from "@/ui/components/Button";
+import { DropdownMenu } from "@/ui/components/DropdownMenu";
 import { ProjectCard } from "@/ui/components/ProjectCard";
 import { SiteFooter } from "@/ui/components/SiteFooter";
 import { SiteNav } from "@/ui/components/SiteNav";
@@ -17,9 +19,20 @@ import { FeatherFileCode } from "@subframe/core";
 import { FeatherFolder } from "@subframe/core";
 import { FeatherMail } from "@subframe/core";
 import { FeatherMap } from "@subframe/core";
-import { FeatherMoreHorizontal } from "@subframe/core";
 import { FeatherUser } from "@subframe/core";
 import * as SubframeCore from "@subframe/core";
+
+interface ProjectData {
+  imageSrc: string;
+  title: string;
+  description: string;
+  date: string;
+  tags: string[];
+  githubUrl?: string;
+  liveDemoUrl?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
+}
 
 function FullStackPortfolio() {
   const sectionPathLabels = React.useMemo(
@@ -32,7 +45,6 @@ function FullStackPortfolio() {
     []
   );
   const [activeSectionLabel, setActiveSectionLabel] = React.useState("Home");
-  const [isCourseworkOpen, setIsCourseworkOpen] = React.useState(false);
 
   React.useEffect(() => {
     const updateActiveSection = () => {
@@ -84,133 +96,7 @@ function FullStackPortfolio() {
     window.scrollTo({ top: Math.max(targetTop, 0), behavior: "smooth" });
   };
 
-  const projects = [
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      title: "CIDA (UNRELEASED, PLACEHOLDER)",
-      description:
-        "Data aggregation pipeline that analyzes and generates reports on HOA's.",
-      lastUpdated: "Dec 12, 2024",
-      tags: ["Python", "TypeScript", "PostgreSQL", "FastAPI"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      title: "HeadCount (UNRELEASED, PLACEHOLDER)",
-      description:
-        "Generate optimized schedules based on availabilities and staffing requirements.",
-      lastUpdated: "Nov 19, 2023",
-      tags: ["Python", "TypeScript", "MySQL", "Flask"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
-      title: "RealDoc.app",
-      description:
-        "Web app built for real estate agencies automating CE certification generation.",
-      lastUpdated: "May 29, 2022",
-      tags: ["Python", "TypeScript", "MySQL", "Flask"],
-      titleClassName: "hover:text-brand-primary transition-colors",
-      descriptionClassName: "whitespace-normal",
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-      title: "Pipeline Monitor (PLACEHOLDER)",
-      description: "Observability dashboard for distributed data workflows.",
-      lastUpdated: "Jan 09, 2025",
-      tags: ["TypeScript", "React", "PostgreSQL", "Redis"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-      title: "Ops Board (PLACEHOLDER)",
-      description: "Operational planning and handoff system for internal teams.",
-      lastUpdated: "Feb 03, 2025",
-      tags: ["Next.js", "Node.js", "OpenAPI", "Docker"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=800&q=80",
-      title: "Doc Automation (PLACEHOLDER)",
-      description: "Template-driven document generation and workflow automation.",
-      lastUpdated: "Mar 15, 2025",
-      tags: ["Python", "FastAPI", "RabbitMQ", "MySQL"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
-      title: "Hiring Hub (PLACEHOLDER)",
-      description: "Candidate tracking and interview score aggregation platform.",
-      lastUpdated: "Apr 11, 2025",
-      tags: ["TypeScript", "React", "MongoDB", "Express"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
-      title: "Load Planner (PLACEHOLDER)",
-      description: "Capacity forecasting and utilization planning tool.",
-      lastUpdated: "May 04, 2025",
-      tags: ["Python", "SQL", "Flask", "Redis"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
-      title: "Audit Trail (PLACEHOLDER)",
-      description: "Immutable audit history for regulated data operations.",
-      lastUpdated: "Jun 27, 2025",
-      tags: ["Node.js", "PostgreSQL", "Docker", "AWS"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80",
-      title: "Queue Insights (PLACEHOLDER)",
-      description: "Real-time queue analytics and SLA alerting service.",
-      lastUpdated: "Jul 12, 2025",
-      tags: ["TypeScript", "RabbitMQ", "Redis", "Grafana"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      title: "Report Studio (PLACEHOLDER)",
-      description: "Self-service reporting builder with export automation.",
-      lastUpdated: "Aug 01, 2025",
-      tags: ["React", "FastAPI", "PostgreSQL", "OpenAPI"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      title: "Infra Pulse (PLACEHOLDER)",
-      description: "Infrastructure health scoring and anomaly detection.",
-      lastUpdated: "Aug 28, 2025",
-      tags: ["Python", "AWS", "Docker", "Prometheus"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
-      title: "Schedule Sync (PLACEHOLDER)",
-      description: "Cross-team scheduling optimizer with conflict resolution.",
-      lastUpdated: "Sep 14, 2025",
-      tags: ["TypeScript", "Node.js", "MySQL", "Redis"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-      title: "Client Portal (PLACEHOLDER)",
-      description: "Secure project portal for client communication and updates.",
-      lastUpdated: "Oct 06, 2025",
-      tags: ["Next.js", "PostgreSQL", "CORS", "OpenAPI"],
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-      title: "Workflow Maps (PLACEHOLDER)",
-      description: "Visual process mapping and automation trigger designer.",
-      lastUpdated: "Nov 21, 2025",
-      tags: ["React", "FastAPI", "MongoDB", "RabbitMQ"],
-    },
-  ];
+  const projects = projectsData as ProjectData[];
 
   const collapsedProjectCount = 3;
   const expandedProjectsPerPage = 9;
@@ -345,40 +231,85 @@ function FullStackPortfolio() {
                   <span className="text-caption font-caption text-subtext-color">
                     09/2021 - 03/2025
                   </span>
-                  <Button
-                    variant="neutral-tertiary"
-                    size="small"
-                    iconRight={<FeatherChevronDown />}
-                    onClick={() => setIsCourseworkOpen((isOpen) => !isOpen)}
-                  >
-                    {isCourseworkOpen ? "Hide Coursework" : "View Coursework"}
-                  </Button>
-                  {isCourseworkOpen ? (
-                    <span className="text-body font-body text-subtext-color">
-                      {[
-                        "Cloud Applications",
-                        "Algorithms",
-                        "Operating Systems",
-                        "UI/UX",
-                        "Databases",
-                        "Parallel Programming",
-                        "Machine Learning",
-                        "Deep Learning",
-                        "Reinforcement Learning",
-                        "Information Retrieval",
-                        "Causal Inference",
-                        "Networks",
-                        "Statistics",
-                        "Differential Calculus",
-                        "Integral Calculus",
-                        "Vector Calculus",
-                        "Linear Algebra",
-                        "Web Development",
-                        "Data Structures",
-                        "Architecture/Assembly",
-                      ].join(" • ")}
-                    </span>
-                  ) : null}
+                  <SubframeCore.DropdownMenu.Root>
+                    <SubframeCore.DropdownMenu.Trigger asChild={true}>
+                      <Button
+                        variant="neutral-tertiary"
+                        size="small"
+                        iconRight={<FeatherChevronDown />}
+                        onClick={(
+                          event: React.MouseEvent<HTMLButtonElement>
+                        ) => {}}
+                      >
+                        View Coursework
+                      </Button>
+                    </SubframeCore.DropdownMenu.Trigger>
+                    <SubframeCore.DropdownMenu.Portal>
+                      <SubframeCore.DropdownMenu.Content
+                        side="bottom"
+                        align="start"
+                        sideOffset={4}
+                        asChild={true}
+                      >
+                        <DropdownMenu className="max-w-[400px]">
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Cloud Applications
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Algorithms
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Operating Systems
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            UI/UX
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Databases
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Parallel Programming
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Machine Learning
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Deep Learning
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Reinforcement Learning
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Information Retrieval
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Causal Inference
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Networks
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Statistics
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Derivative/Integral/Vector Calculus
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Linear Algebra
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Web Development
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Data Structures
+                          </DropdownMenu.DropdownItem>
+                          <DropdownMenu.DropdownItem icon={null}>
+                            Architecture/Assembly
+                          </DropdownMenu.DropdownItem>
+                        </DropdownMenu>
+                      </SubframeCore.DropdownMenu.Content>
+                    </SubframeCore.DropdownMenu.Portal>
+                  </SubframeCore.DropdownMenu.Root>
                 </div>
                 <div className="flex flex-col items-start gap-2">
                   <span className="text-body-bold font-body-bold text-default-font">
@@ -549,7 +480,9 @@ function FullStackPortfolio() {
                 titleClassName={project.titleClassName}
                 description={project.description}
                 descriptionClassName={project.descriptionClassName}
-                lastUpdated={project.lastUpdated}
+                date={project.date}
+                githubUrl={project.githubUrl}
+                liveDemoUrl={project.liveDemoUrl}
                 tags={
                   <>
                     {project.tags.map((tag) => (
@@ -557,7 +490,6 @@ function FullStackPortfolio() {
                         {tag}
                       </Badge>
                     ))}
-                    <Badge variant="neutral" icon={<FeatherMoreHorizontal />} />
                   </>
                 }
               />
