@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
+import { DropdownMenu } from "@/ui/components/DropdownMenu";
 import { IconButton } from "@/ui/components/IconButton";
 import { LinkButton } from "@/ui/components/LinkButton";
-import { FeatherMenu } from "@subframe/core";
+import { FeatherChevronDown } from "@subframe/core";
+import * as SubframeCore from "@subframe/core";
 
 type SiteNavVariant = "home" | "simple";
 
@@ -11,6 +13,7 @@ interface SiteNavProps {
   id?: string;
   variant?: SiteNavVariant;
   simpleLabel?: string;
+  activeSectionLabel?: string;
   onAboutClick?: () => void;
   onTechStackClick?: () => void;
   onProjectsClick?: () => void;
@@ -25,6 +28,7 @@ export function SiteNav({
   id,
   variant = "home",
   simpleLabel = "",
+  activeSectionLabel = "_",
   onAboutClick,
   onTechStackClick,
   onProjectsClick,
@@ -50,9 +54,7 @@ export function SiteNav({
             <div className="flex flex-col items-start">
               <div className="flex items-center gap-1">
                 <span className="text-body font-body text-brand-primary">~/</span>
-                <span className="text-body font-body text-default-font @keyframes pulse animate-pulse">
-                  _
-                </span>
+                <span className="text-body font-body text-default-font">{activeSectionLabel}</span>
               </div>
               <div className="hidden flex-col items-start overflow-hidden rounded-md border border-solid border-neutral-border bg-neutral-0 shadow-lg absolute top-full left-8 mt-2">
                 <div className="flex w-full items-center gap-2 px-3 py-2 hover:bg-neutral-50 cursor-pointer">
@@ -100,11 +102,38 @@ export function SiteNav({
               {rightAction}
             </div>
             <div className="hidden items-start mobile:flex">
-              <IconButton
-                variant="neutral-tertiary"
-                icon={<FeatherMenu />}
-                onClick={() => {}}
-              />
+              <SubframeCore.DropdownMenu.Root>
+                <SubframeCore.DropdownMenu.Trigger asChild={true}>
+                  <IconButton
+                    variant="neutral-tertiary"
+                    icon={<FeatherChevronDown />}
+                    onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+                  />
+                </SubframeCore.DropdownMenu.Trigger>
+                <SubframeCore.DropdownMenu.Portal>
+                  <SubframeCore.DropdownMenu.Content
+                    side="bottom"
+                    align="end"
+                    sideOffset={12}
+                    asChild={true}
+                  >
+                    <DropdownMenu className="pt-2">
+                      <DropdownMenu.DropdownItem icon={null} onClick={onAboutClick}>
+                        ~/about
+                      </DropdownMenu.DropdownItem>
+                      <DropdownMenu.DropdownItem icon={null} onClick={onTechStackClick}>
+                        ~/skills
+                      </DropdownMenu.DropdownItem>
+                      <DropdownMenu.DropdownItem icon={null} onClick={onProjectsClick}>
+                        ~/projects
+                      </DropdownMenu.DropdownItem>
+                      <DropdownMenu.DropdownItem icon={null} onClick={onContactClick}>
+                        ~/contact
+                      </DropdownMenu.DropdownItem>
+                    </DropdownMenu>
+                  </SubframeCore.DropdownMenu.Content>
+                </SubframeCore.DropdownMenu.Portal>
+              </SubframeCore.DropdownMenu.Root>
             </div>
           </>
         ) : null}

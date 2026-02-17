@@ -23,6 +23,52 @@ import { FeatherUser } from "@subframe/core";
 import * as SubframeCore from "@subframe/core";
 
 function FullStackPortfolio() {
+  const sectionPathLabels = React.useMemo(
+    () => [
+      { id: "core-specs", label: "About" },
+      { id: "skills", label: "Skills" },
+      { id: "featured-projects", label: "Projects" },
+      { id: "contact", label: "Contact" },
+    ],
+    []
+  );
+  const [activeSectionLabel, setActiveSectionLabel] = React.useState("Home");
+
+  React.useEffect(() => {
+    const updateActiveSection = () => {
+      const navElement = document.getElementById("main-nav");
+      const navOffset = navElement
+        ? navElement.getBoundingClientRect().height + 40
+        : 120;
+      const scrollPosition = window.scrollY + navOffset;
+
+      let nextLabel = "Home";
+
+      for (const section of sectionPathLabels) {
+        const sectionElement = document.getElementById(section.id);
+        if (!sectionElement) continue;
+
+        const sectionTop = sectionElement.getBoundingClientRect().top + window.scrollY;
+        if (scrollPosition >= sectionTop) {
+          nextLabel = section.label;
+        }
+      }
+
+      setActiveSectionLabel((currentLabel) =>
+        currentLabel === nextLabel ? currentLabel : nextLabel
+      );
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, [sectionPathLabels]);
+
   const scrollToSection = (sectionId: string) => {
     const sectionElement = document.getElementById(sectionId);
     if (!sectionElement) return;
@@ -184,6 +230,7 @@ function FullStackPortfolio() {
       <SiteNav
         id="main-nav"
         variant="home"
+        activeSectionLabel={activeSectionLabel}
         onAboutClick={() => scrollToSection("core-specs")}
         onTechStackClick={() => scrollToSection("skills")}
         onProjectsClick={() => scrollToSection("featured-projects")}
