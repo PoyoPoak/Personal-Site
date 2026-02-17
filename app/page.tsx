@@ -3,7 +3,6 @@
 import React from "react";
 import { Badge } from "@/ui/components/Badge";
 import { Button } from "@/ui/components/Button";
-import { DropdownMenu } from "@/ui/components/DropdownMenu";
 import { ProjectCard } from "@/ui/components/ProjectCard";
 import { SiteFooter } from "@/ui/components/SiteFooter";
 import { SiteNav } from "@/ui/components/SiteNav";
@@ -33,6 +32,7 @@ function FullStackPortfolio() {
     []
   );
   const [activeSectionLabel, setActiveSectionLabel] = React.useState("Home");
+  const [isCourseworkOpen, setIsCourseworkOpen] = React.useState(false);
 
   React.useEffect(() => {
     const updateActiveSection = () => {
@@ -345,85 +345,40 @@ function FullStackPortfolio() {
                   <span className="text-caption font-caption text-subtext-color">
                     09/2021 - 03/2025
                   </span>
-                  <SubframeCore.DropdownMenu.Root>
-                    <SubframeCore.DropdownMenu.Trigger asChild={true}>
-                      <Button
-                        variant="neutral-tertiary"
-                        size="small"
-                        iconRight={<FeatherChevronDown />}
-                        onClick={(
-                          event: React.MouseEvent<HTMLButtonElement>
-                        ) => {}}
-                      >
-                        View Coursework
-                      </Button>
-                    </SubframeCore.DropdownMenu.Trigger>
-                    <SubframeCore.DropdownMenu.Portal>
-                      <SubframeCore.DropdownMenu.Content
-                        side="bottom"
-                        align="start"
-                        sideOffset={4}
-                        asChild={true}
-                      >
-                        <DropdownMenu className="max-w-[400px]">
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Cloud Applications
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Algorithms
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Operating Systems
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            UI/UX
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Databases
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Parallel Programming
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Machine Learning
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Deep Learning
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Reinforcement Learning
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Information Retrieval
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Causal Inference
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Networks
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Statistics
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Derivative/Integral/Vector Calculus
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Linear Algebra
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Web Development
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Data Structures
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Architecture/Assembly
-                          </DropdownMenu.DropdownItem>
-                        </DropdownMenu>
-                      </SubframeCore.DropdownMenu.Content>
-                    </SubframeCore.DropdownMenu.Portal>
-                  </SubframeCore.DropdownMenu.Root>
+                  <Button
+                    variant="neutral-tertiary"
+                    size="small"
+                    iconRight={<FeatherChevronDown />}
+                    onClick={() => setIsCourseworkOpen((isOpen) => !isOpen)}
+                  >
+                    {isCourseworkOpen ? "Hide Coursework" : "View Coursework"}
+                  </Button>
+                  {isCourseworkOpen ? (
+                    <span className="text-body font-body text-subtext-color">
+                      {[
+                        "Cloud Applications",
+                        "Algorithms",
+                        "Operating Systems",
+                        "UI/UX",
+                        "Databases",
+                        "Parallel Programming",
+                        "Machine Learning",
+                        "Deep Learning",
+                        "Reinforcement Learning",
+                        "Information Retrieval",
+                        "Causal Inference",
+                        "Networks",
+                        "Statistics",
+                        "Differential Calculus",
+                        "Integral Calculus",
+                        "Vector Calculus",
+                        "Linear Algebra",
+                        "Web Development",
+                        "Data Structures",
+                        "Architecture/Assembly",
+                      ].join(" • ")}
+                    </span>
+                  ) : null}
                 </div>
                 <div className="flex flex-col items-start gap-2">
                   <span className="text-body-bold font-body-bold text-default-font">
