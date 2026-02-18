@@ -30,8 +30,39 @@ interface ProjectData {
   tags: string[];
   githubUrl?: string;
   liveDemoUrl?: string;
-  titleClassName?: string;
-  descriptionClassName?: string;
+  featuredpos?: string;
+}
+
+interface DisplayProject {
+  project: ProjectData;
+  isFeatured: boolean;
+}
+
+function getProjectDateValue(date: string) {
+  const parsedDate = Date.parse(date);
+  if (!Number.isNaN(parsedDate)) {
+    return parsedDate;
+  }
+
+  const yearMatch = date.match(/\b(19|20)\d{2}\b/);
+  if (yearMatch) {
+    return new Date(Number(yearMatch[0]), 0, 1).getTime();
+  }
+
+  return 0;
+}
+
+function getFeaturedPositionValue(featuredPosition?: string) {
+  if (!featuredPosition || featuredPosition.trim() === "") {
+    return null;
+  }
+
+  const parsedPosition = Number.parseInt(featuredPosition.trim(), 10);
+  if (parsedPosition === 1 || parsedPosition === 2 || parsedPosition === 3) {
+    return parsedPosition;
+  }
+
+  return null;
 }
 
 function FullStackPortfolio() {
@@ -96,7 +127,46 @@ function FullStackPortfolio() {
     window.scrollTo({ top: Math.max(targetTop, 0), behavior: "smooth" });
   };
 
-  const projects = projectsData as ProjectData[];
+  const projects = React.useMemo(() => {
+    const sourceProjects = projectsData as ProjectData[];
+    const featuredProjectsByPosition = new Map<number, ProjectData>();
+    const regularProjects: ProjectData[] = [];
+
+    sourceProjects.forEach((project) => {
+      const featuredPosition = getFeaturedPositionValue(project.featuredpos);
+
+      if (featuredPosition && !featuredProjectsByPosition.has(featuredPosition)) {
+        featuredProjectsByPosition.set(featuredPosition, project);
+        return;
+      }
+
+      regularProjects.push(project);
+    });
+
+    const sortedRegularProjects = [...regularProjects].sort(
+      (leftProject, rightProject) =>
+        getProjectDateValue(rightProject.date) - getProjectDateValue(leftProject.date)
+    );
+
+    const orderedProjects: DisplayProject[] = [];
+    let regularProjectIndex = 0;
+
+    for (let position = 1; position <= sourceProjects.length; position += 1) {
+      const featuredProject = featuredProjectsByPosition.get(position);
+      if (featuredProject) {
+        orderedProjects.push({ project: featuredProject, isFeatured: true });
+        continue;
+      }
+
+      const regularProject = sortedRegularProjects[regularProjectIndex];
+      if (regularProject) {
+        orderedProjects.push({ project: regularProject, isFeatured: false });
+        regularProjectIndex += 1;
+      }
+    }
+
+    return orderedProjects;
+  }, []);
 
   const collapsedProjectCount = 3;
   const expandedProjectsPerPage = 9;
@@ -472,14 +542,15 @@ function FullStackPortfolio() {
             </span>
           </div>
           <div className="w-full items-start gap-6 grid grid-cols-3 mobile:grid mobile:grid-cols-1">
-            {visibleProjects.map((project) => (
+            {visibleProjects.map(({ project, isFeatured }) => (
               <ProjectCard
                 key={project.title}
                 imageSrc={project.imageSrc}
                 title={project.title}
-                titleClassName={project.titleClassName}
+                isFeatured={isFeatured}
+                titleClassName="hover:text-brand-primary transition-colors"
                 description={project.description}
-                descriptionClassName={project.descriptionClassName}
+                descriptionClassName="whitespace-normal"
                 date={project.date}
                 githubUrl={project.githubUrl}
                 liveDemoUrl={project.liveDemoUrl}
