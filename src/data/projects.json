@@ -1,111 +1,92 @@
 [
   {
-    "imageSrc": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    "title": "CIDA (UNRELEASED, PLACEHOLDER)",
+    "imageSrc": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
+    "title": "CIDA (UNRELEASED)",
     "description": "Data aggregation pipeline that analyzes and generates reports on HOA's.",
-    "date": "Dec 12, 2024",
-    "tags": ["Python", "TypeScript", "PostgreSQL", "FastAPI"]
+    "date": "Est. 2026",
+    "featuredpos": "2",
+    "tags": ["Python", "TypeScript", "PostgreSQL", "FastAPI", "React", "Railway"],
+    "githubUrl": "",
+    "liveDemoUrl": ""
   },
   {
     "imageSrc": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    "title": "HeadCount (UNRELEASED, PLACEHOLDER)",
+    "title": "HeadCount (UNRELEASED)",
     "description": "Generate optimized schedules based on availabilities and staffing requirements.",
-    "date": "Nov 19, 2023",
-    "tags": ["Python", "TypeScript", "MySQL", "Flask"]
+    "date": "Est. 2026",
+    "featuredpos": "1",
+    "tags": ["Python", "TypeScript", "MySQL", "Flask", "PuLP", "React", "Railway"],
+    "githubUrl": "",
+    "liveDemoUrl": ""
   },
   {
-    "imageSrc": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
+    "imageSrc": "images/realdoc.webp",
     "title": "RealDoc.app",
-    "description": "Web app built for real estate agencies automating CE certification generation.",
-    "date": "May 29, 2022",
-    "tags": ["Python", "TypeScript", "MySQL", "Flask"],
-    "githubUrl": "https://github.com",
-    "liveDemoUrl": "https://realdoc.app",
-    "titleClassName": "hover:text-brand-primary transition-colors",
-    "descriptionClassName": "whitespace-normal"
+    "description": "Real estate CE certification automation with active users.",
+    "date": "January 2025",
+    "featuredpos": "3",
+    "tags": ["Python", "TypeScript", "MySQL", "Flask", "React", "AWS", "Railway", "Stripe API"],
+    "githubUrl": "",
+    "liveDemoUrl": "https://realdoc.app"
+  },
+    {
+    "imageSrc": "images/personal-site.webp",
+    "title": "Personal-Site",
+    "description": "My personal website built with Next.js and TypeScript.",
+    "date": "February 2026",
+    "featuredpos": "1",
+    "tags": ["TypeScript", "React", "Next.js", "Tailwind CSS", "Github Pages", "Figma"],
+    "githubUrl": "https://github.com/poyopoak/Personal-Site",
+    "liveDemoUrl": "https://peterluey.com"
   },
   {
-    "imageSrc": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-    "title": "Pipeline Monitor (PLACEHOLDER)",
-    "description": "Observability dashboard for distributed data workflows.",
-    "date": "Jan 09, 2025",
-    "tags": ["TypeScript", "React", "PostgreSQL", "Redis"]
+    "imageSrc": "images/lueymedia.webp",
+    "title": "Luey.Media",
+    "description": "My personal photography portfolio site where I share my work and offer services.",
+    "date": "April 2025",
+    "featuredpos": "",
+    "tags": ["Adobe Portfolio", "Adobe CMS", "Figma"],
+    "githubUrl": "",
+    "liveDemoUrl": "https://luey.media"
   },
   {
-    "imageSrc": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-    "title": "Ops Board (PLACEHOLDER)",
-    "description": "Operational planning and handoff system for internal teams.",
-    "date": "Feb 03, 2025",
-    "tags": ["Next.js", "Node.js", "OpenAPI", "Docker"]
+    "imageSrc": "images/pokemon-game.webp",
+    "title": "Pokemon Naming Game",
+    "description": "An online multiplayer browser game where players collaboratively name the first 151 Pokemon.",
+    "date": "September 2025",
+    "featuredpos": "",
+    "tags": ["Python", "TypeScript", "Flask", "React", "Railway"],
+    "githubUrl": "https://github.com/poyopoak/Pokemon-Name-Game",
+    "liveDemoUrl": "https://pokemon-name-game-production.up.railway.app/"
   },
   {
-    "imageSrc": "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=800&q=80",
-    "title": "Doc Automation (PLACEHOLDER)",
-    "description": "Template-driven document generation and workflow automation.",
-    "date": "Mar 15, 2025",
-    "tags": ["Python", "FastAPI", "RabbitMQ", "MySQL"]
-  },
-  {
-    "imageSrc": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
-    "title": "Hiring Hub (PLACEHOLDER)",
-    "description": "Candidate tracking and interview score aggregation platform.",
-    "date": "Apr 11, 2025",
-    "tags": ["TypeScript", "React", "MongoDB", "Express"]
+    "imageSrc": "images/discord-ash.webp",
+    "title": "ASH",
+    "description": "OpenAI powered Discord chatbot with voice and text capabilities.",
+    "date": "July 2023",
+    "featuredpos": "",
+    "tags": ["Python", "JavaScript", "Node.js", "Google Cloud", "Discord API", "OpenAI API"],
+    "githubUrl": "https://github.com/poyopoak/discord-ash",
+    "liveDemoUrl": ""
   },
   {
     "imageSrc": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
-    "title": "Load Planner (PLACEHOLDER)",
-    "description": "Capacity forecasting and utilization planning tool.",
-    "date": "May 04, 2025",
-    "tags": ["Python", "SQL", "Flask", "Redis"]
+    "title": "DocChat POC",
+    "description": "Unconventional RAG chatbot to test using vectors in MySQL.",
+    "date": "March 2025",
+    "featuredpos": "",
+    "tags": ["Python", "C#", "MySQL", "Redis", "word2vec", "OpenAI API", "Docker"],
+    "githubUrl": "https://github.com/poyopoak/DocChatPOC",
+    "liveDemoUrl": ""
   },
   {
     "imageSrc": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
-    "title": "Audit Trail (PLACEHOLDER)",
-    "description": "Immutable audit history for regulated data operations.",
-    "date": "Jun 27, 2025",
-    "tags": ["Node.js", "PostgreSQL", "Docker", "AWS"]
-  },
-  {
-    "imageSrc": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80",
-    "title": "Queue Insights (PLACEHOLDER)",
-    "description": "Real-time queue analytics and SLA alerting service.",
-    "date": "Jul 12, 2025",
-    "tags": ["TypeScript", "RabbitMQ", "Redis", "Grafana"]
-  },
-  {
-    "imageSrc": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    "title": "Report Studio (PLACEHOLDER)",
-    "description": "Self-service reporting builder with export automation.",
-    "date": "Aug 01, 2025",
-    "tags": ["React", "FastAPI", "PostgreSQL", "OpenAPI"]
-  },
-  {
-    "imageSrc": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    "title": "Infra Pulse (PLACEHOLDER)",
-    "description": "Infrastructure health scoring and anomaly detection.",
-    "date": "Aug 28, 2025",
-    "tags": ["Python", "AWS", "Docker", "Prometheus"]
-  },
-  {
-    "imageSrc": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
-    "title": "Schedule Sync (PLACEHOLDER)",
-    "description": "Cross-team scheduling optimizer with conflict resolution.",
-    "date": "Sep 14, 2025",
-    "tags": ["TypeScript", "Node.js", "MySQL", "Redis"]
-  },
-  {
-    "imageSrc": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-    "title": "Client Portal (PLACEHOLDER)",
-    "description": "Secure project portal for client communication and updates.",
-    "date": "Oct 06, 2025",
-    "tags": ["Next.js", "PostgreSQL", "CORS", "OpenAPI"]
-  },
-  {
-    "imageSrc": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-    "title": "Workflow Maps (PLACEHOLDER)",
-    "description": "Visual process mapping and automation trigger designer.",
-    "date": "Nov 21, 2025",
-    "tags": ["React", "FastAPI", "MongoDB", "RabbitMQ"]
+    "title": "Warehouse Bot",
+    "description": "Reinforcement learning agent that stacks boxes in a simulated warehouse environment.",
+    "date": "June 2025",
+    "featuredpos": "",
+    "tags": ["Python", "numpy", "Pandas", "Matplotlib"],
+    "githubUrl": "https://github.com/poyopoak/Reinforcement-Learning-Warehouse-Bot",
+    "liveDemoUrl": ""
   }
 ]

@@ -3,6 +3,7 @@
 import React from "react";
 import { FeatherGithub } from "@subframe/core";
 import { FeatherLink } from "@subframe/core";
+import { FeatherStar } from "@subframe/core";
 import { LinkButton } from "./LinkButton";
 import * as SubframeUtils from "../utils";
 
@@ -14,6 +15,7 @@ interface ProjectCardProps {
   tags: React.ReactNode;
   githubUrl?: string;
   liveDemoUrl?: string;
+  isFeatured?: boolean;
   titleClassName?: string;
   descriptionClassName?: string;
 }
@@ -26,11 +28,10 @@ export function ProjectCard({
   tags,
   githubUrl,
   liveDemoUrl,
+  isFeatured,
   titleClassName,
   descriptionClassName,
 }: ProjectCardProps) {
-  const hasActions = Boolean(githubUrl || liveDemoUrl);
-
   const handleOpenLink = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -39,14 +40,19 @@ export function ProjectCard({
     <div className="flex flex-col items-start overflow-hidden rounded-md border border-solid border-neutral-border bg-neutral-50 shadow-sm hover:border-brand-primary transition-colors cursor-pointer">
       <img className="h-40 w-full flex-none object-cover" src={imageSrc} alt={title} />
       <div className="flex w-full flex-col items-start gap-3 px-6 py-6">
-        <span
-          className={SubframeUtils.twClassNames(
-            "w-full truncate text-heading-3 font-heading-3 text-default-font",
-            titleClassName
-          )}
-        >
-          {title}
-        </span>
+        <div className="flex w-full items-center gap-2">
+          <span
+            className={SubframeUtils.twClassNames(
+              "w-full truncate text-heading-3 font-heading-3 text-default-font",
+              titleClassName
+            )}
+          >
+            {title}
+          </span>
+          {isFeatured ? (
+            <FeatherStar className="flex-none text-body font-body text-brand-primary" />
+          ) : null}
+        </div>
         <span
           className={SubframeUtils.twClassNames(
             "line-clamp-2 w-full text-body font-body text-subtext-color",
@@ -55,7 +61,7 @@ export function ProjectCard({
         >
           {description}
         </span>
-        <div className="flex min-h-6 w-full flex-nowrap items-start gap-2 overflow-hidden">
+        <div className="flex min-h-14 max-h-14 w-full flex-wrap items-start gap-2 overflow-hidden">
           {tags}
         </div>
         <div className="flex w-full items-center justify-between border-t border-solid border-neutral-border pt-2 min-h-6">
