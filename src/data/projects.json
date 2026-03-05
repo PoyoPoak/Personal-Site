@@ -29,6 +29,16 @@
     "githubUrl": "",
     "liveDemoUrl": "https://realdoc.app"
   },
+  {
+    "imageSrc": "images/mspm-poc.webp",
+    "title": "Pace Maker Risk Monitoring POC",
+    "description": "Pacemaker risk analysis platform with machine learning risk modeling.",
+    "date": "March 2026",
+    "featuredpos": "",
+    "tags": ["Python", "TypeScript", "FastAPI", "PostgreSQL", "scikit-learn", "React", "Docker"],
+    "githubUrl": "https://github.com/PoyoPoak/MS-PM-POC",
+    "liveDemoUrl": ""
+  },
     {
     "imageSrc": "images/personal-site.webp",
     "title": "Personal-Site",
