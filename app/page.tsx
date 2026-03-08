@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { ValidationError, useForm } from "@formspree/react";
+import { Alert } from "@/ui/components/Alert";
 import projectsData from "@/data/projects.json";
 import { Badge } from "@/ui/components/Badge";
 import { Button } from "@/ui/components/Button";
@@ -21,7 +23,7 @@ import { FeatherMail } from "@subframe/core";
 import { FeatherMap } from "@subframe/core";
 import { FeatherUser } from "@subframe/core";
 import * as SubframeCore from "@subframe/core";
-import { useForm } from "@formspree/react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 interface ProjectData {
   imageSrc: string;
@@ -67,7 +69,37 @@ function getFeaturedPositionValue(featuredPosition?: string) {
 }
 
 function FullStackPortfolio() {
-  const [contactState, handleContactSubmit] = useForm("xreybojl");
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [contactState, handleContactSubmit] = useForm("xreybojl", {
+    data: {
+      "g-recaptcha-response": async () => {
+        if (!siteKey || !executeRecaptcha) {
+          return "";
+        }
+
+        return executeRecaptcha("contact_form_submit");
+      },
+    },
+  });
+  const captchaReady = !siteKey || Boolean(executeRecaptcha);
+  const getFieldErrorMessage = (field: string) => {
+    const fieldErrors = contactState.errors?.getFieldErrors(field) ?? [];
+    if (fieldErrors.length === 0) {
+      return undefined;
+    }
+
+    return fieldErrors.map((error) => error.message).join(" ");
+  };
+
+  const formErrors = contactState.errors?.getFormErrors() ?? [];
+  const hasCaptchaError = formErrors.some(
+    (error) =>
+      error.code === "BLOCKED" || /captcha|recaptcha/i.test(error.message)
+  );
+  const formErrorMessage = hasCaptchaError
+    ? "Captcha verification failed. Please wait a few seconds and try submitting again."
+    : formErrors.map((error) => error.message).join(" ");
   const sectionPathLabels = React.useMemo(
     () => [
       { id: "core-specs", label: "About" },
@@ -633,18 +665,36 @@ function FullStackPortfolio() {
               className="flex w-full max-w-180 flex-col items-start gap-4"
               onSubmit={handleContactSubmit}
             >
-              <TextField className="w-full" label="Name">
+              <TextField
+                className="w-full"
+                label="Name"
+                error={Boolean(getFieldErrorMessage("name"))}
+                helpText={getFieldErrorMessage("name")}
+              >
                 <TextField.Input name="name" placeholder="Your name" required />
               </TextField>
               <div className="grid w-full grid-cols-2 gap-4 mobile:grid-cols-1">
-                <TextField className="w-full" label="Email">
-                  <TextField.Input
-                    name="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    required
+                <div className="flex w-full flex-col items-start gap-1">
+                  <TextField
+                    className="w-full"
+                    label="Email"
+                    error={Boolean(getFieldErrorMessage("email"))}
+                    helpText={getFieldErrorMessage("email")}
+                  >
+                    <TextField.Input
+                      name="email"
+                      type="email"
+                      placeholder="you@example.com"
+                      required
+                    />
+                  </TextField>
+                  <ValidationError
+                    className="text-caption font-caption text-error-700"
+                    prefix="Email"
+                    field="email"
+                    errors={contactState.errors}
                   />
-                </TextField>
+                </div>
                 <TextField className="w-full" label="Phone Number">
                   <TextField.Input
                     name="phone"
@@ -653,7 +703,12 @@ function FullStackPortfolio() {
                   />
                 </TextField>
               </div>
-              <TextArea className="w-full" label="Message">
+              <TextArea
+                className="w-full"
+                label="Message"
+                error={Boolean(getFieldErrorMessage("message"))}
+                helpText={getFieldErrorMessage("message")}
+              >
                 <TextArea.Input
                   name="message"
                   placeholder="What's the message? Enter it here..."
@@ -661,7 +716,7 @@ function FullStackPortfolio() {
                 />
               </TextArea>
               <Button
-                disabled={contactState.submitting}
+                disabled={contactState.submitting || !captchaReady}
                 loading={contactState.submitting}
                 type="submit"
                 variant="brand-primary"
@@ -669,6 +724,11 @@ function FullStackPortfolio() {
               >
                 Send
               </Button>
+              {siteKey && !captchaReady ? (
+                <span className="text-caption font-caption text-subtext-color">
+                  Loading captcha protection...
+                </span>
+              ) : null}
               {contactState.succeeded ? (
                 <span
                   className="text-body font-body text-brand-primary"
@@ -677,6 +737,13 @@ function FullStackPortfolio() {
                 >
                   Message sent successfully. Thanks for reaching out.
                 </span>
+              ) : null}
+              {!contactState.succeeded && formErrors.length > 0 ? (
+                <Alert
+                  variant="error"
+                  title="Message could not be sent"
+                  description={formErrorMessage}
+                />
               ) : null}
             </form>
           </div>
