@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@subframe/core": "^1.154.0",
     "next": "16.1.6",
     "react": "19.2.3",

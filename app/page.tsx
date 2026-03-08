@@ -21,6 +21,7 @@ import { FeatherMail } from "@subframe/core";
 import { FeatherMap } from "@subframe/core";
 import { FeatherUser } from "@subframe/core";
 import * as SubframeCore from "@subframe/core";
+import { useForm } from "@formspree/react";
 
 interface ProjectData {
   imageSrc: string;
@@ -66,6 +67,7 @@ function getFeaturedPositionValue(featuredPosition?: string) {
 }
 
 function FullStackPortfolio() {
+  const [contactState, handleContactSubmit] = useForm("xreybojl");
   const sectionPathLabels = React.useMemo(
     () => [
       { id: "core-specs", label: "About" },
@@ -629,9 +631,7 @@ function FullStackPortfolio() {
             </span>
             <form
               className="flex w-full max-w-180 flex-col items-start gap-4"
-              onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
-                event.preventDefault();
-              }}
+              onSubmit={handleContactSubmit}
             >
               <TextField className="w-full" label="Name">
                 <TextField.Input name="name" placeholder="Your name" required />
@@ -661,13 +661,23 @@ function FullStackPortfolio() {
                 />
               </TextArea>
               <Button
-                disabled={true}
+                disabled={contactState.submitting}
+                loading={contactState.submitting}
                 type="submit"
                 variant="brand-primary"
                 size="medium"
               >
                 Send
               </Button>
+              {contactState.succeeded ? (
+                <span
+                  className="text-body font-body text-brand-primary"
+                  role="status"
+                  aria-live="polite"
+                >
+                  Message sent successfully. Thanks for reaching out.
+                </span>
+              ) : null}
             </form>
           </div>
         </div>
