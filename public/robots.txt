@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://peterluey.com/sitemap.xml
+
+Have at it.
