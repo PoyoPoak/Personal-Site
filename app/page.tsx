@@ -6,7 +6,6 @@ import { Alert } from "@/ui/components/Alert";
 import projectsData from "@/data/projects.json";
 import { Badge } from "@/ui/components/Badge";
 import { Button } from "@/ui/components/Button";
-import { DropdownMenu } from "@/ui/components/DropdownMenu";
 import { ProjectCard } from "@/ui/components/ProjectCard";
 import { SiteFooter } from "@/ui/components/SiteFooter";
 import { SiteNav } from "@/ui/components/SiteNav";
@@ -22,7 +21,6 @@ import { FeatherFolder } from "@subframe/core";
 import { FeatherMail } from "@subframe/core";
 import { FeatherMap } from "@subframe/core";
 import { FeatherUser } from "@subframe/core";
-import * as SubframeCore from "@subframe/core";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 interface ProjectData {
@@ -255,7 +253,7 @@ function FullStackPortfolio() {
               </span>
               <span className="whitespace-pre-wrap text-body font-body text-subtext-color">
           {
-            "Specializes in building web applications and automation enabling others to do more. Currently, I'm job searching while developing custom websites and software for businesses as part of my SaaS startup Ka Technology to eventually become full stack."
+            "Specializes in building web applications and automations enabling others to do more. Currently, I'm a DevOps Engineer Intern at Micro Systems Engineering working with data pipelines while developing custom web apps for businesses as part of my SaaS startup Ka Technology for fun."
           }
               </span>
               <div className="flex items-center gap-2 mobile:h-auto mobile:w-full mobile:flex-none mobile:flex-row mobile:flex-wrap mobile:gap-2">
@@ -321,7 +319,7 @@ function FullStackPortfolio() {
                   </span>
                   <span className="whitespace-pre-wrap text-body font-body text-subtext-color">
                     {
-                      "With 2.5+ years of experience in both startup and enterprise environments, I'm a highly adaptable software engineer that can design, develop, and deploy web applications for any use case.\n\nI'm currently searching for potential job opportunities in the Willamette Valley or the Greater LA Area. My goal is to find a place where I can contribute to projects where my efforts can make an impactful in others' lives while continuing to grow as an engineer."
+                      "With 2.5+ years of experience in both startup and enterprise environments, I'm a highly adaptable software engineer that can design, develop, and deploy web applications for any use case.\n\nCurrently, I'm searching for a full time opportunity in the Willamette Valley or the Greater LA Area. My goal is to find a place where I can contribute to projects where my efforts can make an impact in others' lives while continuing to grow as an engineer."
                     }
                   </span>
                 </div>
@@ -335,85 +333,19 @@ function FullStackPortfolio() {
                   <span className="text-caption font-caption text-subtext-color">
                     09/2021 - 03/2025
                   </span>
-                  <SubframeCore.DropdownMenu.Root>
-                    <SubframeCore.DropdownMenu.Trigger asChild={true}>
-                      <Button
-                        variant="neutral-tertiary"
-                        size="small"
-                        iconRight={<FeatherChevronDown />}
-                        onClick={(
-                          event: React.MouseEvent<HTMLButtonElement>
-                        ) => {}}
-                      >
-                        View Coursework
-                      </Button>
-                    </SubframeCore.DropdownMenu.Trigger>
-                    <SubframeCore.DropdownMenu.Portal>
-                      <SubframeCore.DropdownMenu.Content
-                        side="bottom"
-                        align="start"
-                        sideOffset={4}
-                        asChild={true}
-                      >
-                        <DropdownMenu className="max-w-[400px]">
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Cloud Applications
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Algorithms
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Operating Systems
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            UI/UX
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Databases
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Parallel Programming
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Machine Learning
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Deep Learning
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Reinforcement Learning
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Information Retrieval
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Causal Inference
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Networks
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Statistics
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Derivative/Integral/Vector Calculus
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Linear Algebra
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Web Development
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Data Structures
-                          </DropdownMenu.DropdownItem>
-                          <DropdownMenu.DropdownItem icon={null}>
-                            Architecture/Assembly
-                          </DropdownMenu.DropdownItem>
-                        </DropdownMenu>
-                      </SubframeCore.DropdownMenu.Content>
-                    </SubframeCore.DropdownMenu.Portal>
-                  </SubframeCore.DropdownMenu.Root>
+                </div>
+                <div className="flex flex-col items-start gap-2">
+                  <span className="text-body-bold font-body-bold text-default-font">
+                    Coursework
+                  </span>
+                  <span className="text-body font-body text-subtext-color">
+                    Cloud Applications • Algorithms • Operating Systems • UI/UX
+                    • Databases • Parallel Programming • Machine Learning • Deep
+                    Learning • Reinforcement Learning • Information Retrieval •
+                    Causal Inference • Networks • Statistics • Calculus •
+                    Linear Algebra • Web Development • Data Structures •
+                    Architecture/Assembly
+                  </span>
                 </div>
                 <div className="flex flex-col items-start gap-2">
                   <span className="text-body-bold font-body-bold text-default-font">
@@ -431,6 +363,24 @@ function FullStackPortfolio() {
                   Work Experience
                 </span>
                 <div className="flex flex-col items-start gap-6">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-2 w-2 flex-none flex-col items-start gap-2 rounded-full bg-brand-primary mt-1" />
+                    <div className="flex flex-col items-start gap-2">
+                      <span className="text-body-bold font-body-bold text-default-font">
+                        Micro Systems Engineering
+                      </span>
+                      <span className="text-body font-body text-subtext-color">
+                        DevOps Engineer Intern • Hybrid • Lake Oswego, OR
+                      </span>
+                      <span className="text-caption font-caption text-subtext-color">
+                        05/2026 - Present
+                      </span>
+                      <span className="text-body font-body text-subtext-color">
+                        Building data pipelines and automations while driving
+                        AI adoption initiatives across the organization.
+                      </span>
+                    </div>
+                  </div>
                   <div className="flex items-start gap-3">
                     <div className="flex h-2 w-2 flex-none flex-col items-start gap-2 rounded-full bg-brand-primary mt-1" />
                     <div className="flex flex-col items-start gap-2">
@@ -561,6 +511,7 @@ function FullStackPortfolio() {
                   <Badge variant="brand">Azure</Badge>
                   <Badge variant="brand">Linux</Badge>
                   <Badge variant="neutral">Jenkins CI/CD</Badge>
+                  <Badge variant="neutral">Snowflake</Badge>
                   <Badge variant="neutral">Google Cloud</Badge>
                   <Badge variant="neutral">Bitbucket</Badge>
                 </div>
