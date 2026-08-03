@@ -76,7 +76,11 @@ function FullStackPortfolio() {
           return "";
         }
 
-        return executeRecaptcha("contact_form_submit");
+        try {
+          return await executeRecaptcha("contact_form_submit");
+        } catch {
+          return "";
+        }
       },
     },
   });
