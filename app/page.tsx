@@ -491,7 +491,7 @@ function FullStackPortfolio() {
                 <div className="flex flex-wrap items-start gap-2">
                   <Badge variant="warning">Flask</Badge>
                   <Badge variant="warning">MySQL</Badge>
-                  <Badge variant="brand">FastAPI</Badge>
+                  <Badge variant="warning">FastAPI</Badge>
                   <Badge variant="brand">Node.js</Badge>
                   <Badge variant="brand">ASP.NET</Badge>
                   <Badge>OpenAPI</Badge>
@@ -513,9 +513,10 @@ function FullStackPortfolio() {
                   <Badge variant="warning">Docker</Badge>
                   <Badge variant="brand">AWS</Badge>
                   <Badge variant="brand">Azure</Badge>
+                  <Badge variant="brand">dbt</Badge>
+                  <Badge variant="brand">Snowflake</Badge>
                   <Badge variant="brand">Linux</Badge>
                   <Badge variant="neutral">Jenkins CI/CD</Badge>
-                  <Badge variant="neutral">Snowflake</Badge>
                   <Badge variant="neutral">Google Cloud</Badge>
                   <Badge variant="neutral">Bitbucket</Badge>
                 </div>
