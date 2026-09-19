@@ -257,7 +257,7 @@ function FullStackPortfolio() {
               </span>
               <span className="whitespace-pre-wrap text-body font-body text-subtext-color">
           {
-            "Specializes in building web applications and automations enabling others to do more. Currently, I'm a DevOps Engineer Intern at Micro Systems Engineering working with data pipelines while developing custom web apps for businesses as part of my SaaS startup Ka Technology for fun."
+            "Specializes in building web applications and automation enabling others to do more. Currently, I'm job searching while developing custom websites and software for businesses as part of my SaaS startup Ka Technology to eventually become full stack."
           }
               </span>
               <div className="flex items-center gap-2 mobile:h-auto mobile:w-full mobile:flex-none mobile:flex-row mobile:flex-wrap mobile:gap-2">
@@ -377,10 +377,10 @@ function FullStackPortfolio() {
                         DevOps Engineer Intern • Hybrid • Lake Oswego, OR
                       </span>
                       <span className="text-caption font-caption text-subtext-color">
-                        05/2026 - Present
+                        05/2026 - 08/2026
                       </span>
                       <span className="text-body font-body text-subtext-color">
-                        Building data pipelines and automations while driving
+                        Built data pipelines and automations while driving
                         AI adoption initiatives across the organization.
                       </span>
                     </div>
@@ -512,9 +512,9 @@ function FullStackPortfolio() {
                   <Badge variant="warning">Railway</Badge>
                   <Badge variant="warning">Docker</Badge>
                   <Badge variant="brand">AWS</Badge>
-                  <Badge variant="brand">Azure</Badge>
+                  <Badge variant="warning">Azure DevOps</Badge>
                   <Badge variant="brand">dbt</Badge>
-                  <Badge variant="brand">Snowflake</Badge>
+                  <Badge variant="warning">Snowflake</Badge>
                   <Badge variant="brand">Linux</Badge>
                   <Badge variant="neutral">Jenkins CI/CD</Badge>
                   <Badge variant="neutral">Google Cloud</Badge>

@@ -50,6 +50,16 @@
     "liveDemoUrl": "https://peterluey.com"
   },
   {
+    "imageSrc": "images/snowflake.webp",
+    "title": "Data Transmission Pipeline",
+    "description": "Production data pipeline aggregating HIPAA data across disjoint sources.",
+    "date": "July 2026",
+    "featuredpos": "4",
+    "tags": ["Snowflake", "dbt", "Python", "Oracle SQL", "Jinja", "Azure DevOps"],
+    "githubUrl": "",
+    "liveDemoUrl": ""
+  },
+  {
     "imageSrc": "images/lueymedia.webp",
     "title": "Luey.Media",
     "description": "My personal photography portfolio site where I share my work and offer services.",
