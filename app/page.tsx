@@ -511,10 +511,10 @@ function FullStackPortfolio() {
                   <Badge variant="warning">Github/Github Actions</Badge>
                   <Badge variant="warning">Railway</Badge>
                   <Badge variant="warning">Docker</Badge>
-                  <Badge variant="brand">AWS</Badge>
                   <Badge variant="warning">Azure DevOps</Badge>
-                  <Badge variant="brand">dbt</Badge>
                   <Badge variant="warning">Snowflake</Badge>
+                  <Badge variant="brand">AWS</Badge>
+                  <Badge variant="brand">dbt</Badge>
                   <Badge variant="brand">Linux</Badge>
                   <Badge variant="neutral">Jenkins CI/CD</Badge>
                   <Badge variant="neutral">Google Cloud</Badge>
