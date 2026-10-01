@@ -357,7 +357,7 @@ function FullStackPortfolio() {
                   </span>
                   <span className="text-body font-body text-subtext-color">
                     Photography • Coffee • Software Engineering (yes, really) •
-                    Interior Design • Cooking • F1 • Finance • AI/Automation •
+                    Interior Design • Sim Racing • Cooking • F1 • Finance/Investing • AI/Automation •
                     Cars • PC Hardware
                   </span>
                 </div>
