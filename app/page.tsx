@@ -263,11 +263,11 @@ function FullStackPortfolio() {
               <div className="flex items-center gap-2 mobile:h-auto mobile:w-full mobile:flex-none mobile:flex-row mobile:flex-wrap mobile:gap-2">
           <FeatherMap className="text-body font-body text-subtext-color" />
           <span className="text-body font-body text-subtext-color">
-            Salem, OR
+            Long Beach, CA
           </span>
           <div className="flex h-1 w-1 flex-none flex-col items-start gap-2 rounded-full bg-subtext-color" />
           <span className="text-body font-body text-subtext-color">
-            Long Beach, CA
+            Salem, OR
           </span>
               </div>
             </div>
@@ -323,7 +323,7 @@ function FullStackPortfolio() {
                   </span>
                   <span className="whitespace-pre-wrap text-body font-body text-subtext-color">
                     {
-                      "With 2.5+ years of experience in both startup and enterprise environments, I'm a highly adaptable software engineer that can design, develop, and deploy web applications for any use case.\n\nCurrently, I'm searching for a full time opportunity in the Willamette Valley or the Greater LA Area. My goal is to find a place where I can contribute to projects where my efforts can make an impact in others' lives while continuing to grow as an engineer."
+                      "With 2.5+ years of experience in both startup and enterprise environments, I'm a highly adaptable software engineer that can design, develop, and deploy web applications for any use case.\n\nCurrently, I'm searching for a full time opportunity in the Greater LA Area or the Willamette Valley. My goal is to find a place where I can contribute to projects where my efforts can make an impact in others' lives while continuing to grow as an engineer."
                     }
                   </span>
                 </div>
