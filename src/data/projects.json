@@ -30,6 +30,16 @@
     "liveDemoUrl": "https://realdoc.app"
   },
   {
+    "imageSrc": "images/doigetgas.webp",
+    "title": "Do I Get Gas?",
+    "description": "Gas price forecast that tells you whether to fill up now or wait, based on crude oil trends.",
+    "date": "October 2026",
+    "featuredpos": "",
+    "tags": ["TypeScript", "React", "Next.js", "Tailwind CSS", "Vercel", "EIA API"],
+    "githubUrl": "",
+    "liveDemoUrl": "https://doigetgas.com"
+  },
+  {
     "imageSrc": "images/mspm-poc.webp",
     "title": "Pace Maker Risk Monitoring POC",
     "description": "Pacemaker risk analysis platform with machine learning risk modeling.",
