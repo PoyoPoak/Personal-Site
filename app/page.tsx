@@ -475,6 +475,7 @@ function FullStackPortfolio() {
                   Frontend
                 </span>
                 <div className="flex flex-wrap items-start gap-2">
+                  <Badge variant="warning">Claude Design</Badge>
                   <Badge variant="brand">React</Badge>
                   <Badge>Next.js</Badge>
                   <Badge>Tailwind CSS</Badge>
@@ -529,7 +530,6 @@ function FullStackPortfolio() {
                   <Badge variant="warning">Copilot</Badge>
                   <Badge variant="warning">Antigravity</Badge>
                   <Badge variant="warning">MCP</Badge>
-                  <Badge variant="brand">Claude Design</Badge>
                   <Badge variant="brand">OpenRouter</Badge>
                   <Badge variant="brand">Codex</Badge>
                 </div>
