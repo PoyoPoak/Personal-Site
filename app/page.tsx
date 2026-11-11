@@ -532,6 +532,7 @@ function FullStackPortfolio() {
                   <Badge variant="brand">MCP</Badge>
                   <Badge variant="brand">OpenRouter</Badge>
                   <Badge variant="neutral">Codex</Badge>
+                  <Badge variant="neutral">PyTorch</Badge>
                 </div>
               </div>
             </div>
