@@ -529,9 +529,9 @@ function FullStackPortfolio() {
                   <Badge variant="warning">Claude Code</Badge>
                   <Badge variant="warning">Copilot</Badge>
                   <Badge variant="warning">Antigravity</Badge>
-                  <Badge variant="warning">MCP</Badge>
+                  <Badge variant="brand">MCP</Badge>
                   <Badge variant="brand">OpenRouter</Badge>
-                  <Badge variant="brand">Codex</Badge>
+                  <Badge variant="neutral">Codex</Badge>
                 </div>
               </div>
             </div>
