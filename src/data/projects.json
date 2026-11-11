@@ -4,7 +4,7 @@
     "title": "CIDA (UNRELEASED)",
     "description": "Data aggregation pipeline that analyzes and generates reports on HOA's.",
     "date": "Est. 2026",
-    "featuredpos": "2",
+    "featuredpos": "",
     "tags": ["Python", "TypeScript", "PostgreSQL", "FastAPI", "React", "Railway"],
     "githubUrl": "",
     "liveDemoUrl": ""
@@ -14,7 +14,7 @@
     "title": "ShiftWize (UNRELEASED)",
     "description": "Generate optimized schedules based on availabilities and staffing requirements.",
     "date": "Est. 2026",
-    "featuredpos": "1",
+    "featuredpos": "",
     "tags": ["Python", "TypeScript", "MySQL", "Flask", "PuLP", "React", "Railway"],
     "githubUrl": "",
     "liveDemoUrl": ""
@@ -24,7 +24,7 @@
     "title": "RealDoc.app",
     "description": "Real estate CE certification automation with active users.",
     "date": "January 2025",
-    "featuredpos": "3",
+    "featuredpos": "2",
     "tags": ["Python", "TypeScript", "MySQL", "Flask", "React", "AWS", "Railway", "Stripe API"],
     "githubUrl": "",
     "liveDemoUrl": "https://realdoc.app"
@@ -34,7 +34,7 @@
     "title": "Do I Get Gas?",
     "description": "Gas price forecast that tells you whether to fill up now or wait, based on crude oil trends.",
     "date": "October 2026",
-    "featuredpos": "",
+    "featuredpos": "1",
     "tags": ["TypeScript", "React", "Next.js", "Tailwind CSS", "Vercel", "EIA API", "Claude Design"],
     "githubUrl": "",
     "liveDemoUrl": "https://doigetgas.com"
@@ -54,7 +54,7 @@
     "title": "Personal-Site",
     "description": "My personal website built with Next.js and TypeScript.",
     "date": "February 2026",
-    "featuredpos": "1",
+    "featuredpos": "",
     "tags": ["TypeScript", "React", "Next.js", "Tailwind CSS", "Github Pages", "Figma"],
     "githubUrl": "https://github.com/poyopoak/Personal-Site",
     "liveDemoUrl": "https://peterluey.com"
@@ -64,7 +64,7 @@
     "title": "Data Transmission Pipeline",
     "description": "Production data pipeline aggregating HIPAA data across disjoint sources.",
     "date": "July 2026",
-    "featuredpos": "4",
+    "featuredpos": "3",
     "tags": ["Snowflake", "dbt", "Python", "Oracle SQL", "Jinja", "Azure DevOps"],
     "githubUrl": "",
     "liveDemoUrl": ""
